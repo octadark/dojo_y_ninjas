@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ninjas</title>
+    <link rel="stylesheet" href={{url_for('static', filename='css/styles.css')}}>
+</head>
+<body>
+    <h1> Nuevo Ninja </h1>
+    <form method="POST" action="/nuevo/ninja">
+        <div>
+            <label for="dojo_id">
+                Dojo:
+            </label>
+            <select id="dojo_id" name="dojo_id">
+                {% for dojo in lista_dojos: %}
+                <option value="{{dojo.id}}"> {{dojo.nombre}} </option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="nombre">
+                Nombre del ninja:
+            </label>
+            <input id="nombre" name="nombre" type="text">
+        </div>
+        <div>
+            <label for="apellido">
+                Apellido del ninja:
+            </label>
+            <input id="apellido" name="apellido" type="text">
+        </div>
+        <div>
+            <label for="edad">
+                Edad del ninja:
+            </label>
+            <input id="edad" name="edad" type="number">
+        </div>
+        <button>
+            Agregar
+        </button>
+    </form>
+    <a href="/dojos"> Dojos </a>
+</body>
+</html>
